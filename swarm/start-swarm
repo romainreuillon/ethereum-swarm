@@ -1,0 +1,16 @@
+
+#!/bin/bash
+
+PASSWORD="/root/.ethereum/password"
+BZZKEY=`geth account list | sed "s/.*{\(.*\)}.*/\1/1"`
+
+swarm version
+
+IP=`hostname -i | cut -d' ' -f 1`
+
+while :
+do
+  sleep 1
+  echo "Try to connect to geth"
+  swarm --bzzaccount $BZZKEY --password $PASSWORD --bzzport 8500 --httpaddr $IP
+done

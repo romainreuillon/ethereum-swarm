@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  swarm:
+    build: ./swarm
+    ports:
+      - 8500:8500
+    volumes:
+      - "./data/ethereum:/root/.ethereum"
+    depends_on:
+      - geth
+  geth:
+    build: ./geth
+    volumes:
+    - "./data/ethereum:/root/.ethereum"
