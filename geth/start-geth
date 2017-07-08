@@ -15,6 +15,7 @@ then
 fi
 
 
-geth --syncmode light --password $PASSWORD 
+geth --syncmode light --testnet --password $PASSWORD 
+#geth --testnet --password $PASSWORD 
 
 

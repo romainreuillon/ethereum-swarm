@@ -4,13 +4,18 @@
 PASSWORD="/root/.ethereum/password"
 BZZKEY=`geth account list | sed "s/.*{\(.*\)}.*/\1/1"`
 
+
+
 swarm version
 
 IP=`hostname -i | cut -d' ' -f 1`
+IPC=/root/.ethereum/testnet/geth.ipc
 
 while :
 do
   sleep 1
   echo "Try to connect to geth"
-  swarm --bzzaccount $BZZKEY --password $PASSWORD --bzzport 8500 --httpaddr $IP
+  geth --exec='admin.addPeer("enode://b795d0c872061336fea95a530333ee49ca22ce519f6b9bf1573c31ac0b62c99fe5c8a222dbc83d4ef5dc9e2dfb816fdc89401a36ecfeaeaa7dba1e5285a6e63b@40.68.194.101:30429")' attach $IPC  && \
+  geth --exec='admin.addPeer("enode://01f7728a1ba53fc263bcfbc2acacc07f08358657070e17536b2845d98d1741ec2af00718c79827dfdbecf5cfcd77965824421508cc9095f378eb2b2156eb79fa@40.68.194.101:30400")' attach $IPC  && \
+  swarm --bzzaccount $BZZKEY --password $PASSWORD --bzzport 8500 --httpaddr $IP --ens-api $IPC
 done
