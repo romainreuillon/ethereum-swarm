@@ -16,5 +16,6 @@ do
   geth --exec='admin.addPeer("enode://b795d0c872061336fea95a530333ee49ca22ce519f6b9bf1573c31ac0b62c99fe5c8a222dbc83d4ef5dc9e2dfb816fdc89401a36ecfeaeaa7dba1e5285a6e63b@40.68.194.101:30429")' attach $IPC  && \
   geth --exec='admin.addPeer("enode://01f7728a1ba53fc263bcfbc2acacc07f08358657070e17536b2845d98d1741ec2af00718c79827dfdbecf5cfcd77965824421508cc9095f378eb2b2156eb79fa@40.68.194.101:30400")' attach $IPC  && \
   geth --exec='admin.addPeer("enode://6d9102dd1bebb823944480282c4ba4f066f8dcf15da513268f148890ddea42d7d8afa58c76b08c16b867a58223f2b567178ac87dcfefbd68f0c3cc1990f1e3cf@40.68.194.101:30427")' attach $IPC  && \
-  swarm --bzzaccount $BZZKEY --password $PASSWORD --bzzport 8500 --httpaddr $IP --ens-api $IPC
+  swarm --bzzaccount $BZZKEY --password $PASSWORD --bzzport 8500 --ens-api $IPC
+  #swarm --bzzaccount $BZZKEY --password $PASSWORD --bzzport 8500 --httpaddr $IP --ens-api $IPC
 done

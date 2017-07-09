@@ -8,7 +8,9 @@ services:
       - "./data/ethereum:/root/.ethereum"
     depends_on:
       - geth
+    network_mode: "host"
   geth:
     build: ./geth
     volumes:
     - "./data/ethereum:/root/.ethereum"
+    network_mode: "host"
