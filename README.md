@@ -1,6 +1,7 @@
 # ethereum-swarm
-docker compose reciepie for ethereum swam distributed storage
 
-To launch it: `docker-compose up -d`
+[Docker Compose](https://docs.docker.com/compose/) recipe for ethereum SWARM distributed storage with support of ENS via geth light client.
 
-Then connect to http://localhost:8500/bzz:/theswarm.eth/
+To launch it: `docker-compose up -d`.
+
+Then connect to: http://localhost:8500/bzz:/theswarm.eth/.
